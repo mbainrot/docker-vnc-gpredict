@@ -7,6 +7,21 @@ Credits to:
 * gpredict
 * Docker Ubuntu VNC Desktop - https://github.com/fcwu/docker-ubuntu-vnc-desktop
 
+# Building
+Due to docker hub's recent policy change the container may not be available on the docker hub, if this is the case, perform the following
+```
+git clone https://github.com/mbainrot/docker-vnc-gpredict.git
+cd docker-vnc-gpredict
+docker build -t mbainrot/docker-vnc-gpredict ./
+```
+
+# Preparation
+To be able to retain settings due to the switches used (which makes the environment non-persistent) create the following directies
+```
+mkdir ~/Desktop/shared_writable
+mkdir -p ~/Desktop/shared_user_profile/.config
+```
+
 # Usage
 ```
 docker run -it --rm -v ~/Desktop/shared_writable/:/root/Desktop -v ~/Desktop/shared_user_profile/.config:/root/.config -p 6090:80 -d -v /dev/shm:/dev/shm mbainrot/docker-vnc-gpredict
