@@ -1,4 +1,4 @@
-# docker-vnc-flatcam
+# docker-vnc-gpredict
 Ubuntu/LXDE/VNC desktop with gpredict pre-installed.
 
 This is a low effort hack-together cobbling on a public holiday so will be janky and support is non-existant.
@@ -8,6 +8,12 @@ Credits to:
 * Docker Ubuntu VNC Desktop - https://github.com/fcwu/docker-ubuntu-vnc-desktop
 
 # Usage
+```
+docker run -it --rm -v ~/Desktop/shared_writable/:/root/Desktop -v ~/Desktop/shared_user_profile/.config:/root/.config -p 6090:80 -d -v /dev/shm:/dev/shm mbainrot/docker-vnc-gpredict
+```
+
+# Alt-usage
+This exposes the VNC port rather than the no-vnc server allowing you to use a proper vnc client 
 ```
 docker run -it --rm -v ~/Desktop/shared_writable/:/root/Desktop -v ~/Desktop/shared_user_profile/.config:/root/.config -p 6090:80 -d -v /dev/shm:/dev/shm mbainrot/docker-vnc-gpredict
 ```
