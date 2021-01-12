@@ -16,6 +16,10 @@ RUN apt-get update && apt-get install -y gpredict
 #    Icon=/usr/flatcam/share/flatcam_icon128.png\n\
 #	URL=/usr/share/applications/FlatCAM.desktop" > /root/Desktop/flatcam.desktop
 
+# Change the name of the page so the tab makes sense
+RUN cat /usr/local/lib/web/frontend/index.html | sed -E 's/novnc2/novnc2 - gpredict/' > /usr/local/lib/web/frontend/index.html.temp && \
+    mv /usr/local/lib/web/frontend/index.html.temp /usr/local/lib/web/frontend/index.html
+
 # We reuse this stuff from dorowu/ubuntu-desktop-lxde-vnc so the container starts as it should
 EXPOSE 80
 WORKDIR /root
